@@ -14,27 +14,20 @@ import {
 } from "@/components/ui/avatar"
 import Image from 'next/image'
 import { useState } from "react";
+import HamburgerMenu from "@/components/HamburgerMenu";
+import MenuComponent from "@/components/MenuComponent";
 
 
 
 
 const Intro: React.FC = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false)
-
-    const toggleMenu = (): void => {
-        setIsOpen(!isOpen)
-    }
 
 
     return (
         // <div className='flex flex-col items-center'>hello world</div>
         <>
-            <div className="space-y-2 cursor-pointer" onClick={toggleMenu}>
-                <div className={`w-8 h-1 bg-black transition-transform ${isOpen ? 'transform rotate-45 translate-y-3' : ''}`}></div>
-                <div className={`w-8 h-1 bg-black transition-opacity ${isOpen ? 'opacity-0' : 'opacity-100'}`}></div>
-                <div className={`w-8 h-1 bg-black transition-transform ${isOpen ? 'transform -rotate-45 -translate-y-3' : ''}`}></div>
-            </div>
-            <div className="flex min-h-screen flex-col items-center p-12">
+            <div className="main-container flex min-h-screen flex-col items-center p-12 relative">
+
                 <p className='text-3xl'>i am ...</p>
                 <Image src='/images/mickey.jpeg' alt="mickey-image" width={100} height={100} className="rounded-full m-6" />
                 {/* <Avatar>
@@ -58,7 +51,7 @@ const Intro: React.FC = () => {
                     <AccordionItem value="item-3">
                         <AccordionTrigger>skills</AccordionTrigger>
                         <AccordionContent>
-                            <ul>
+                            <ul className='list-disc'>
                                 <li>Python</li>
                                 <li>TypeScript / JavaScript</li>
                                 <li>Java</li>
@@ -76,6 +69,7 @@ const Intro: React.FC = () => {
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
+
             </div>
         </>
     )
