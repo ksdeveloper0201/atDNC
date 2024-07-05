@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -6,52 +6,40 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/ui/accordion"
-import {
-    Avatar,
-    AvatarFallback,
-    AvatarImage,
-} from "@/components/ui/avatar"
-import Image from 'next/image'
+} from "@/components/ui/accordion";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 import { useState } from "react";
 import HamburgerMenu from "@/components/HamburgerMenu";
 import MenuComponent from "@/components/MenuComponent";
 
-
-
-
-const Intro: React.FC = () => {
-
-
+const IntroPage: React.FC = () => {
     return (
         // <div className='flex flex-col items-center'>hello world</div>
         <>
-            <div className="main-container flex min-h-screen flex-col items-center p-12 relative">
-
-                <p className='text-3xl'>i am ...</p>
-                <Image src='/images/mickey.jpeg' alt="mickey-image" width={100} height={100} className="rounded-full m-6" />
-                {/* <Avatar>
-                <AvatarImage width={50} src="/images/mickey.jpeg" alt="@shadcn" />
-                <AvatarFallback>CN</AvatarFallback>
-            </Avatar> */}
+            <div className="main-container flex min-h-screen flex-col items-center p-12">
+                <p className="text-3xl">i am ...</p>
+                <Image
+                    src="/images/mickey.jpeg"
+                    alt="mickey-image"
+                    width={100}
+                    height={100}
+                    className="rounded-full m-6"
+                />
 
                 <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>name</AccordionTrigger>
-                        <AccordionContent>
-                            Kiyonobu Satoshi
-                        </AccordionContent>
+                        <AccordionContent>Kiyonobu Satoshi</AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
                         <AccordionTrigger>from</AccordionTrigger>
-                        <AccordionContent>
-                            Japan in Chiba
-                        </AccordionContent>
+                        <AccordionContent>Japan in Chiba</AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
                         <AccordionTrigger>skills</AccordionTrigger>
                         <AccordionContent>
-                            <ul className='list-disc'>
+                            <ul className="list-disc">
                                 <li>Python</li>
                                 <li>TypeScript / JavaScript</li>
                                 <li>Java</li>
@@ -69,10 +57,9 @@ const Intro: React.FC = () => {
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
-
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Intro;
+export default IntroPage;
