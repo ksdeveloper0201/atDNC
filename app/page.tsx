@@ -4,7 +4,6 @@ import { useState } from "react";
 import MenuComponent from "@/components/MenuComponent";
 
 const Home: React.FC = () => {
-
   return (
     <main>
       <Intro />
