@@ -1,17 +1,13 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
-import { useState } from "react";
-import HamburgerMenu from "@/components/HamburgerMenu";
-import MenuComponent from "@/components/MenuComponent";
+
 
 const IntroPage: React.FC = () => {
   return (

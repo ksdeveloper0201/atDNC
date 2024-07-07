@@ -1,12 +1,9 @@
-import HamburgerMenu from "@/components/HamburgerMenu";
-import Intro from "@/app/intro/page";
-import { useState } from "react";
-import MenuComponent from "@/components/MenuComponent";
+import IntroPage from "@/app/intro/page";
 
 const Home: React.FC = () => {
   return (
     <main>
-      <Intro />
+      <IntroPage />
     </main>
   );
 };
