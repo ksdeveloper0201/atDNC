@@ -47,8 +47,8 @@ const IntroPage: React.FC = () => {
             <AccordionTrigger>hobby</AccordionTrigger>
             <AccordionContent>
               <ul>
-                <li>watch movie</li>
-                <li>listen to music</li>
+                <li>watching movie</li>
+                <li>listening to music</li>
               </ul>
             </AccordionContent>
           </AccordionItem>
