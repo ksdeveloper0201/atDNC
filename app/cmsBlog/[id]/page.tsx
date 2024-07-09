@@ -8,7 +8,7 @@ const ShowBlog: React.FC<{ params: { id: string } }> = async ({ params }) => {
     if (!blog) {
         console.error('blog is none')
     }
-    console.log('blog', blog)
+    console.log('blogs', blog)
     return (
         <>
             <div> {blog.title}</div>
