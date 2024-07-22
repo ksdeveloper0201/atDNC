@@ -1,23 +1,44 @@
+const menuColumns = [
+  {
+    name: 'Introduction',
+    redirectUrl: '/intro'
+  },
+  {
+    name: 'Skills',
+    redirectUrl: '/skills'
+  },
+  {
+    name: 'Products',
+    redirectUrl: '/products'
+  },
+  {
+    name: 'Tech Blog (microCMS)',
+    redirectUrl: '/cmsBlog'
+  },
+  {
+    name: 'Blog (self API)',
+    redirectUrl: '/blog'
+  }
+]
+
+const ColumnOneOf: React.FC<{ name: string, redirectUrl: string }> = ({ name, redirectUrl }) => {
+  return (
+    <li className="m-6 text-2xl">
+      <a href={redirectUrl}>{name}</a>
+    </li>
+  )
+}
+
 const MenuComponent = () => {
   return (
     <div className="display-container">
       <div className="menu-container flex justify-center pt-12">
-        <ul className="list-inside">
-          <li className="m-6 text-2xl">
-            <a href="/intro">Introduction</a>
-          </li>
-          <li className="m-6 text-2xl">
-            <a href="/skills">skills</a>
-          </li>
-          <li className="m-6 text-2xl">
-            <a href="/products">products</a>
-          </li>
-          <li className="m-6 text-2xl">
-            <a href="/cmsBlog">skill blog (microCMS)</a>
-          </li>
-          <li className="m-6 text-2xl">
-            <a href="/blog">others blog (self api)</a>
-          </li>
+        <ul className="list-inside md:flex md:list-inside md:space-x-4">
+          {menuColumns.map((item, index) => {
+            return (
+              <ColumnOneOf key={index} name={item.name} redirectUrl={item.redirectUrl} />
+            )
+          })}
         </ul>
       </div>
     </div>

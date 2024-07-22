@@ -11,7 +11,6 @@ import Image from "next/image";
 
 const IntroPage: React.FC = () => {
     return (
-        // <div className='flex flex-col items-center'>hello world</div>
         <>
             <div className="main-container flex min-h-screen flex-col items-center p-12">
                 <p className="text-3xl">i am ...</p>
