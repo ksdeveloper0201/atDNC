@@ -1,10 +1,9 @@
-import Link from 'next/link';
-import { getBlogs } from '@/lib/client';
-import * as React from "react"
-import { Badge } from "@/components/ui/badge"
+import Link from "next/link";
+import { getBlogs } from "@/lib/client";
+import * as React from "react";
+import { Badge } from "@/components/ui/badge";
 
-
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -12,26 +11,24 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 // import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-
+import { Label } from "@/components/ui/label";
 
 const CmsBlogPage: React.FC = async () => {
   const { contents } = await getBlogs();
 
   if (!contents) {
-    return (<h1>No Contents</h1>)
+    return <h1>No Contents</h1>;
   }
 
-  console.log('contents', contents)
+  console.log("contents", contents);
   return (
     <>
-      <div className='pt-16 px-4'>
+      <div className="pt-16 px-4">
         <ul>
-          {contents.map((blog) =>
-          (
-            <li className='my-4' key={blog.id}>
+          {contents.map((blog) => (
+            <li className="my-4" key={blog.id}>
               <Link href={`/cmsBlog/${blog.id}`}>
                 <Card className="w-[350px]">
                   <CardHeader>
@@ -56,7 +53,7 @@ const CmsBlogPage: React.FC = async () => {
         </ul>
       </div>
     </>
-  )
+  );
 };
 
 export default CmsBlogPage;

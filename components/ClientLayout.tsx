@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import HamburgerMenu from "@/components/HamburgerMenu";
 import MenuComponent from "@/components/MenuComponent";
+import MenuTabs from "./MenuTabs";
 
 const ClientLayout: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -18,12 +19,12 @@ const ClientLayout: React.FC<{ children: React.ReactNode }> = ({
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 768); // md size (768px)
     };
-    handleResize() // checkSize
-    window.addEventListener('resize', handleResize);
+    handleResize(); // checkSize
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize)
-    }
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -36,13 +37,15 @@ const ClientLayout: React.FC<{ children: React.ReactNode }> = ({
       {isDesktop ? (
         <>
           <div className="fixed top-0 left-0 w-full z-10">
-            <MenuComponent />
+            <MenuTabs />
           </div>
           {!isOpen && <div className="mt-16">{children}</div>}
-
         </>
-      ) : (isOpen ? <MenuComponent /> : children)}
-
+      ) : isOpen ? (
+        <MenuComponent classValue="pt-12" />
+      ) : (
+        children
+      )}
     </div>
   );
 };
