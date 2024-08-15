@@ -17,7 +17,11 @@ const ClientLayout: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 768); // md size (768px)
+      const isWideThanMd = window.innerWidth >= 768
+      setIsDesktop(isWideThanMd); // md size (768px)
+      if (isWideThanMd) {
+        setIsOpen(false)
+      }
     };
     handleResize(); // checkSize
     window.addEventListener("resize", handleResize);
@@ -39,7 +43,7 @@ const ClientLayout: React.FC<{ children: React.ReactNode }> = ({
           <div className="fixed top-0 left-0 w-full z-10">
             <MenuTabs />
           </div>
-          {!isOpen && <div className="mt-16">{children}</div>}
+          <div className="mt-16">{children}</div>
         </>
       ) : isOpen ? (
         <MenuComponent classValue="pt-12" />

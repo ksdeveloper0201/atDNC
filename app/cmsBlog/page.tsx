@@ -1,56 +1,46 @@
 import Link from "next/link";
-import { getBlogs } from "@/lib/client";
+import { Blog, client, getBlogLIst, getBlogs } from "@/lib/client";
 import * as React from "react";
-import { Badge } from "@/components/ui/badge";
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-// import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label";
+import ArticleCard from "@/components/ArticleCard";
+import CategoryCard from "@/components/CategoryCard";
 
-const CmsBlogPage: React.FC = async () => {
-  const { contents } = await getBlogs();
+const CmsBlogPage = async () => {
+  let blog = []
+
+  const { contents } = await getBlogLIst()
+  const blogs = await getBlogs()
+  console.log("blogs", blogs)
+
+  let categoryList: string[] = []
+  if (contents) {
+    contents.map((contents) => {
+      contents.category.map((contentCate: string) => {
+        if (!categoryList.includes(contentCate))
+          categoryList.push(contentCate)
+      })
+    })
+  }
 
   if (!contents) {
     return <h1>No Contents</h1>;
   }
 
-  console.log("contents", contents);
   return (
     <>
-      <div className="pt-16 px-4">
-        <ul>
-          {contents.map((blog) => (
-            <li className="my-4" key={blog.id}>
-              <Link href={`/cmsBlog/${blog.id}`}>
-                <Card className="w-[350px]">
-                  <CardHeader>
-                    <CardTitle>{blog.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <form>
-                      <div className="grid w-full items-center gap-4">
-                        <div>
-                          <Badge>{blog.category}</Badge>
-                        </div>
-                        <div className="flex flex-col space-y-1.5">
-                          <Label htmlFor="createdDate">{blog.createdAt}</Label>
-                        </div>
-                      </div>
-                    </form>
-                  </CardContent>
-                </Card>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <div className="md:grid md:grid-cols-3 gap-4">
+        <div className="pt-4 px-4 col-span-2">
+          <ul>
+            {contents.map((blog) => (
+              <li className="my-4" key={blog.id}>
+                <ArticleCard blog={blog} />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="hidden md:block md:col-span-1">
+          <CategoryCard categoryList={categoryList} className="mt-8 mr-4" />
+        </div>
       </div>
     </>
   );
