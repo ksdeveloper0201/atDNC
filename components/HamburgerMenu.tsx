@@ -1,13 +1,13 @@
-type Props = {
+type HamburgerMenuProps = {
   toggleMenu: () => void;
   isOpen: boolean;
-  classValue: string;
+  classValue?: string;
 };
 
-const HamburgerMenu: React.FC<Props> = ({ toggleMenu, isOpen, classValue }) => {
+const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ toggleMenu, isOpen, classValue }) => {
   return (
     <div
-      className={`space-y-2 cursor-pointer ${classValue}`}
+      className={`space-y-2 cursor-pointer border-solid ${classValue}`}
       onClick={toggleMenu}
     >
       <div

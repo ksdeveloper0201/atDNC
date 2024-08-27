@@ -26,6 +26,7 @@ export const client = createClient({
 export const getBlogLIst = async () => {
     const blogList = await client.getList({
         endpoint: "blog",
+        queries: { limit: 100 },
     });
     return blogList;
 };
@@ -38,7 +39,7 @@ export const getBlogs = async () => {
 export const getBlogsByCategory = async (categoryName: string) => {
     const blogs = await client.get({
         endpoint: "blog",
-        queries: { filters: `category[contains]${categoryName}` },
+        queries: { filters: `category[contains]${categoryName}`, limit: 100 },
     });
     return blogs;
 };
