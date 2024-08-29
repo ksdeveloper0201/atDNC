@@ -1,51 +1,64 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 interface redirectDataType {
-    label: string,
-    url: string,
+    label: string;
+    url: string;
 }
 
-interface redirectDatum {
-    redirectDatum: redirectDataType[]
+interface HeaderComponentProps {
+    redirectDatum: redirectDataType[];
+    className?: string;
 }
 
-    // testcommit
-
-function HeaderComponent({ redirectDatum }: redirectDatum) {
-    const [isOpen, setIsOpen] = useState<boolean>(false)
+function HeaderComponent({ redirectDatum, className }: HeaderComponentProps) {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
     const toggleMenuOpen = () => {
-        setIsOpen(!isOpen)
+        setIsOpen(!isOpen);
         // console.log('hello')
-    }
+    };
     return (
-        <div className="relative" >
+        <div className={cn("fixed top-0 left-0 w-full z-50", className)}>
             <div className="flex justify-between bg-slate-300 text-xl p-4">
                 <div role="logo">KSDeve</div>
-                <div role="columns" >
+                <div role="columns">
                     <ul className="gap-4 md:flex hidden">
                         {redirectDatum.map((data, index) => {
                             return (
-                                <li key={index}><Link href={data.url}>{data.label}</Link></li>
-                            )
+                                <li key={index}>
+                                    <Link href={data.url}>{data.label}</Link>
+                                </li>
+                            );
                         })}
                     </ul>
-                    {isOpen ?
-                        <div className="absolute top-full left-0 w-full bg-slate-300 z-10">
-                            <ul>
-                                {redirectDatum.map((data, index) => {
-                                    return (
-                                        <li key={index}><Link href={data.url}>{data.label}</Link></li>
-                                    )
-                                })}
-                            </ul>
-                        </div>
-                        :
-                        <HamburgerMenu toggleMenu={() => toggleMenuOpen()} isOpen={isOpen} classValue="md:hidden" />
-                    }
+                    <div
+                        className={cn(
+                            "fixed top-0 left-0 bg-slate-300 w-full h-full z-10 flex justify-center items-center transition-transform duration-300 ease-in-out",
+                            isOpen ? "translate-x-0" : "translate-x-full"
+                        )}
+                    >
+                        <ul>
+                            {redirectDatum.map((data, index) => {
+                                return (
+                                    <li key={index} className="my-5">
+                                        <Link href={data.url}>{data.label}</Link>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+
+                    <div className="absolute top-0 right-0 p-4 z-20">
+                        <HamburgerMenu
+                            toggleMenu={() => toggleMenuOpen()}
+                            isOpen={isOpen}
+                            className="md:hidden"
+                        />
+                    </div>
                 </div>
             </div>
         </div>

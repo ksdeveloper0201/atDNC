@@ -7,27 +7,29 @@ import CategoryCard from "@/components/CategoryCard";
 import PageArrow from "@/components/PageArrow";
 
 interface CmsBlogPageProps {
-  searchParams: { page: string }
+  searchParams: { page: string };
 }
 
 const CmsBlogPage = async ({ searchParams }: CmsBlogPageProps) => {
-  const page = parseInt(searchParams.page || "1", 10)
-  const itemsPerPage = 5
+  const page = parseInt(searchParams.page || "1", 10);
+  const itemsPerPage = 5;
 
   // ブログの一覧
-  const { contents } = await getBlogLIst()
+  const { contents } = await getBlogLIst();
 
-  const totalPages = Math.ceil(contents.length / itemsPerPage)
-  const currentContents = contents.slice((page - 1) * itemsPerPage, page * itemsPerPage)
+  const totalPages = Math.ceil(contents.length / itemsPerPage);
+  const currentContents = contents.slice(
+    (page - 1) * itemsPerPage,
+    page * itemsPerPage,
+  );
 
-  let categoryList: string[] = []
+  let categoryList: string[] = [];
   if (contents) {
     contents.map((contents) => {
       contents.category.map((contentCate: string) => {
-        if (!categoryList.includes(contentCate))
-          categoryList.push(contentCate)
-      })
-    })
+        if (!categoryList.includes(contentCate)) categoryList.push(contentCate);
+      });
+    });
   }
 
   if (!contents) {

@@ -17,10 +17,10 @@ const ClientLayout: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     const handleResize = () => {
-      const isWideThanMd = window.innerWidth >= 768
+      const isWideThanMd = window.innerWidth >= 768;
       setIsDesktop(isWideThanMd); // md size (768px)
       if (isWideThanMd) {
-        setIsOpen(false)
+        setIsOpen(false);
       }
     };
     handleResize(); // checkSize

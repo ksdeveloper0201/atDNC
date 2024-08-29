@@ -1,13 +1,19 @@
+import { cn } from "@/lib/utils";
+
 type HamburgerMenuProps = {
   toggleMenu: () => void;
   isOpen: boolean;
-  classValue?: string;
+  className?: string;
 };
 
-const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ toggleMenu, isOpen, classValue }) => {
+const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
+  toggleMenu,
+  isOpen,
+  className,
+}) => {
   return (
     <div
-      className={`space-y-2 cursor-pointer border-solid ${classValue}`}
+      className={cn("space-y-2 cursor-pointer border-solid", className)}
       onClick={toggleMenu}
     >
       <div
