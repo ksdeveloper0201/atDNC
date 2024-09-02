@@ -36,7 +36,7 @@ const ClientLayout: React.FC<{ children: React.ReactNode }> = ({
       <HamburgerMenu
         isOpen={isOpen}
         toggleMenu={toggleMenu}
-        classValue="absolute top-4 right-4 md:hidden"
+        className="absolute top-4 right-4 md:hidden"
       />
       {isDesktop ? (
         <>

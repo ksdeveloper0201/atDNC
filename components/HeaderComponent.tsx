@@ -19,12 +19,11 @@ function HeaderComponent({ redirectDatum, className }: HeaderComponentProps) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const toggleMenuOpen = () => {
         setIsOpen(!isOpen);
-        // console.log('hello')
     };
     return (
         <div className={cn("fixed top-0 left-0 w-full z-50", className)}>
             <div className="flex justify-between bg-slate-300 text-xl p-4">
-                <div role="logo">KSDeve</div>
+                <Link role="logo" href='/'>KSDeve</Link>
                 <div role="columns">
                     <ul className="gap-4 md:flex hidden">
                         {redirectDatum.map((data, index) => {
