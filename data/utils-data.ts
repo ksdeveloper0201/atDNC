@@ -40,7 +40,11 @@ export const introMyWorkContent: IntroContentProps = {
             content: "microCMSを利用して作成したBlogサイトです。",
             redirectUrl: "/cmsBlog",
         },
-        { title: "title2", content: "content" },
+        {
+            title: "政治家.com",
+            content: "政治家の情報のまとめサイトです。",
+            redirectUrl: "/government",
+        },
         { title: "title3", content: "content" },
     ],
 };
