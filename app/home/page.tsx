@@ -1,15 +1,9 @@
-"use client";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button"
 import { introMyWorkContent, introSkillsContent } from "@/data/utils-data";
 import IntroContent from "@/components/IntroContent";
+import { GetInTouchForm } from "@/components/GetInTouchForm";
 
 
 const IntroPage: React.FC = () => {
@@ -17,7 +11,7 @@ const IntroPage: React.FC = () => {
   return (
     <>
       <div className="p-8">
-        <div className="md:grid grid-cols-2 mb-4">
+        <div className="md:grid grid-cols-2 mb-20">
           <div className="grid gap-4 md:content-start">
             <div className="text-3xl font-bold">Hi, I'm KSdeve</div>
             <p>I'm a full-stack web developer with a passion for creating beautiful and functional websites.
@@ -38,14 +32,14 @@ const IntroPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="md:grid grid-cols-2" >
+        <div className="md:grid grid-cols-2 mb-20" >
           <IntroContent name={introSkillsContent.name} body={introSkillsContent.body} className="mb-8" />
           <IntroContent name={introMyWorkContent.name} body={introMyWorkContent.body} className="mb-8" />
         </div>
 
         <div>
           <div>
-            <p>Get in touch</p>
+            <GetInTouchForm />
             <p>contact info</p>
           </div>
         </div>
