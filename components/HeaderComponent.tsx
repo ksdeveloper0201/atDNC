@@ -11,11 +11,12 @@ interface redirectDataType {
 }
 
 interface HeaderComponentProps {
+    title: string;
     redirectDatum: redirectDataType[];
     className?: string;
 }
 
-function HeaderComponent({ redirectDatum, className }: HeaderComponentProps) {
+function HeaderComponent({ title, redirectDatum, className }: HeaderComponentProps) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const toggleMenuOpen = () => {
         setIsOpen(!isOpen);
@@ -23,7 +24,7 @@ function HeaderComponent({ redirectDatum, className }: HeaderComponentProps) {
     return (
         <div className={cn("fixed top-0 left-0 w-full z-50", className)}>
             <div className="flex justify-between bg-slate-300 text-xl p-4">
-                <Link role="logo" href='/'>KSDeve</Link>
+                <Link role="logo" href='/'>{title}</Link>
                 <div role="columns">
                     <ul className="gap-4 md:flex hidden">
                         {redirectDatum.map((data, index) => {

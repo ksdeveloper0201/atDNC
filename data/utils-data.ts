@@ -15,6 +15,36 @@ export const redirectData = [
     },
 ];
 
+export const politicianRedirectData = [
+    {
+        url: "/politician",
+        label: "ホーム",
+    },
+    {
+        url: "/politician/about",
+        label: "このサイトについて",
+    },
+    {
+        url: "/politician/connect",
+        label: "お問い合わせ",
+    },
+];
+
+export const tsumutsumuTodoRedirectData = [
+    {
+        url: "/tsumutsumuTodo",
+        label: "ホーム",
+    },
+    {
+        url: "/tsumutsumuTodo/about",
+        label: "このサイトについて",
+    },
+    {
+        url: "/tsumutsumuTodo/connect",
+        label: "お問い合わせ",
+    },
+];
+
 export const introSkillsContent: IntroContentProps = {
     name: "Skills",
     body: [
@@ -43,8 +73,12 @@ export const introMyWorkContent: IntroContentProps = {
         {
             title: "政治家.com",
             content: "政治家の情報のまとめサイトです。",
-            redirectUrl: "/government",
+            redirectUrl: "/politician",
         },
-        { title: "title3", content: "content" },
+        {
+            title: "tsumutsumuTodo",
+            content: "ツムツムのためのスケジュール管理ツールです。",
+            redirectUrl: "/tsumutsumuTodo",
+        },
     ],
 };

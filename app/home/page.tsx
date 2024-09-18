@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button"
 import { introMyWorkContent, introSkillsContent } from "@/data/utils-data";
 import IntroContent from "@/components/IntroContent";
-import { GetInTouchForm } from "@/components/GetInTouchForm";
 
 
 const IntroPage: React.FC = () => {
@@ -13,8 +12,8 @@ const IntroPage: React.FC = () => {
       <div className="p-8">
         <div className="md:grid grid-cols-2 mb-20">
           <div className="grid gap-4 md:content-start">
-            <div className="text-3xl font-bold">Hi, I'm KSdeve</div>
-            <p>I'm a full-stack web developer with a passion for creating beautiful and functional websites.
+            <div className="text-3xl font-bold">Hi, Im KSdeve</div>
+            <p>Im a full-stack web developer with a passion for creating beautiful and functional websites.
               I have experience working with a variety of technologies, including React, Node.js, and MongoDB.</p>
             <div role="intro-button">
               <Button className="w-fit px-5">view my work</Button>
@@ -37,12 +36,12 @@ const IntroPage: React.FC = () => {
           <IntroContent name={introMyWorkContent.name} body={introMyWorkContent.body} className="mb-8" />
         </div>
 
-        <div>
+        {/* <div>
           <div>
             <GetInTouchForm />
             <p>contact info</p>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </>

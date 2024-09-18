@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, "pt-16")}>
-        <HeaderComponent redirectDatum={redirectData} />
+        <HeaderComponent title="KSDeve" redirectDatum={redirectData} />
         {children}
       </body>
     </html>
