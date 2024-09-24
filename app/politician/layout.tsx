@@ -14,19 +14,18 @@ export const metadata = {
 // Aboutページ専用のレイアウト
 const PoliticianLayout = ({ children }: { children: ReactNode }) => {
     return (
-        <html lang="en">
-            <body>
-                <HeaderComponent title="政治家.com" redirectDatum={politicianRedirectData} />
-                {/* Aboutページ専用のコンテンツを表示 */}
-                <main className='pt-16 mx-8'>
-                    {children}
-                </main>
+        <>
+            <HeaderComponent title="政治家.com" redirectDatum={politicianRedirectData} />
+            {/* Aboutページ専用のコンテンツを表示 */}
+            <main className='pt-16 mx-8'>
+                {children}
+            </main>
 
-                <footer>
-                    <p>&copy; 2024 politician.com by ksdeve. All rights reserved.</p>
-                </footer>
-            </body>
-        </html>
+            <footer>
+                <p>&copy; 2024 politician.com by ksdeve. All rights reserved.</p>
+            </footer>
+        </>
+
     );
 };
 

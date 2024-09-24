@@ -31,7 +31,7 @@ const IntroPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="md:grid grid-cols-2 mb-20" >
+        <div className="md:grid grid-cols-2 gap-8 mb-20" >
           <IntroContent name={introSkillsContent.name} body={introSkillsContent.body} className="mb-8" />
           <IntroContent name={introMyWorkContent.name} body={introMyWorkContent.body} className="mb-8" />
         </div>
