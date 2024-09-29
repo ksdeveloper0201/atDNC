@@ -29,37 +29,34 @@ import { useRouter } from 'next/navigation'
 
 
 const formSchema = z.object({
-    goalTitle: z.string().min(2, {
-        message: "Goal title must be at least 2 characters.",
+    normaTitle: z.string().min(2, {
+        message: "norma title must be at least 2 characters.",
     }),
-    goalDescription: z.string().min(2, {
-        message: "Goal description must be at least 2 characters.",
+    normaDescription: z.string().min(2, {
+        message: "norma description must be at least 2 characters.",
     }),
-    goalDeadline: z.date(),
-    goalCoin: z.string(),
+    normaDeadline: z.date(),
+    normaCoin: z.string(),
     currentCoin: z.string().min(2, {
-        message: "Goal priority must be at least 2 characters.",
+        message: "norma priority must be at least 2 characters.",
     }),
-    goalBox: z.string(),
+    normaBox: z.string(),
 })
 
-interface TsumuTodoFormProps {
+interface TsumuDailyTodoFormProps {
     className?: string
 }
 
-type formSchema = z.infer<typeof formSchema>
-console.log('formSchema', formSchema)
-
-const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
+const TsumuDailyTodoForm: React.FC<TsumuDailyTodoFormProps> = ({ className }) => {
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            goalTitle: "",
-            goalDescription: "",
-            goalDeadline: new Date(),
-            goalCoin: '',
-            goalBox: '',
+            normaTitle: "",
+            normaDescription: "",
+            normaDeadline: new Date(),
+            normaCoin: '',
+            normaBox: '',
             currentCoin: '',
         },
     })
@@ -67,8 +64,8 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
     const router = useRouter()
     const { watch, setValue } = form
 
-    const goalCoinValue = watch('goalCoin')
-    const goalBoxValue = watch('goalBox')
+    const normaCoinValue = watch('normaCoin')
+    const normaBoxValue = watch('normaBox')
 
 
     function onSubmit(values: z.infer<typeof formSchema>) {
@@ -92,16 +89,16 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit, onError)} className="space-y-8">
                     <div className="md:w-3/4 w-4/5 flex flex-col mx-auto gap-4">
-                        <div className="font-bold text-2xl">ゴール設定</div>
+                        <div className="font-bold text-2xl">日々のノルマ設定</div>
                         <div>下の入力欄に対して目標となる情報を入れてください。</div>
                         <FormField
                             control={form.control}
-                            name="goalTitle"
+                            name="normaTitle"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>ゴールタイトル</FormLabel>
+                                    <FormLabel>ノルマタイトル</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="ゴールタイトルを入力" {...field} />
+                                        <Input placeholder="ノルマタイトルを入力" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -109,12 +106,12 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
                         />
                         <FormField
                             control={form.control}
-                            name="goalDescription"
+                            name="normaDescription"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>ゴール詳細</FormLabel>
+                                    <FormLabel>ノルマ詳細</FormLabel>
                                     <FormControl>
-                                        <Textarea placeholder="ゴールの詳細" {...field} />
+                                        <Textarea placeholder="ノルマの詳細" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -122,10 +119,10 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
                         />
                         <FormField
                             control={form.control}
-                            name="goalDeadline"
+                            name="normaDeadline"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col">
-                                    <FormLabel>ゴール期日</FormLabel>
+                                    <FormLabel>ノルマ継続期日</FormLabel>
                                     <Popover>
                                         <PopoverTrigger asChild>
                                             <FormControl>
@@ -158,7 +155,7 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
                                         </PopoverContent>
                                     </Popover>
                                     <FormDescription>
-                                        目標となる日付を設定してください。
+                                        ノルマを継続する日付を設定してください。
                                     </FormDescription>
                                     <FormMessage />
                                 </FormItem>
@@ -166,7 +163,7 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
                         />
                         {/* <FormField
                         control={form.control}
-                        name="goalPriority"
+                        name="normaPriority"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>優先度</FormLabel>
@@ -179,12 +176,12 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
                     /> */}
                         <FormField
                             control={form.control}
-                            name="goalCoin"
+                            name="normaCoin"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>目標コイン数{parseInt(goalCoinValue) !== 0 && parseInt(goalCoinValue) / 30000 >= 1 ? ` <ボックス数: ${Math.floor(parseInt(goalCoinValue) / 30000)}回分>` : ' <ボックス数: 0回分>'}</FormLabel>
+                                    <FormLabel>ノルマコイン数{parseInt(normaCoinValue) !== 0 && parseInt(normaCoinValue) / 30000 >= 1 ? ` <ボックス数: ${Math.floor(parseInt(normaCoinValue) / 30000)}回分>` : ' <ボックス数: 0回分>'}</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="目標コイン数を入力" {...field} />
+                                        <Input placeholder="ノルマコイン数を入力" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -192,12 +189,12 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
                         />
                         <FormField
                             control={form.control}
-                            name="goalBox"
+                            name="normaBox"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>目標プレゼントボックス数{!(['0', ''].includes(goalBoxValue)) ? ` <コイン数：${parseInt(goalBoxValue) * 30000}枚>` : ''}</FormLabel>
+                                    <FormLabel>ノルマプレゼントボックス数{!(['0', ''].includes(normaBoxValue)) ? ` <コイン数：${parseInt(normaBoxValue) * 30000}枚>` : ''}</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="目標プレゼントボックス数を入力" {...field} disabled={!([0, ''].includes(goalCoinValue))} />
+                                        <Input placeholder="ノルマプレゼントボックス数を入力" {...field} disabled={!([0, ''].includes(normaCoinValue))} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -226,4 +223,4 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
 }
 
 
-export default TsumuTodoForm
+export default TsumuDailyTodoForm
