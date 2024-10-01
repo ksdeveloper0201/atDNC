@@ -2,7 +2,7 @@
 
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'; // 必要なインポートを追加
 
-const Page = () => {
+const TodoInfo = () => {
 
     const searchParams = useSearchParams()
 
@@ -47,4 +47,4 @@ const Page = () => {
     );
 }
 
-export default Page; // 追加
+export default TodoInfo; // 追加
