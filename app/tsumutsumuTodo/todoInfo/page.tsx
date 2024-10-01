@@ -1,6 +1,7 @@
 'use client'
 
-import { useRouter, usePathname, useSearchParams } from 'next/navigation'; // 必要なインポートを追加
+import { useSearchParams } from 'next/navigation'; // 必要なインポートを追加
+import { Suspense } from 'react';
 
 const TodoInfo = () => {
 
@@ -47,4 +48,12 @@ const TodoInfo = () => {
     );
 }
 
-export default TodoInfo; // 追加
+const TodoInfoPage = () => {
+    return (
+        <Suspense fallback={<div>loading...</div>}>
+            <TodoInfo />
+        </Suspense>
+    )
+}
+
+export default TodoInfoPage; // 追加
