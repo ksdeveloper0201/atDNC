@@ -15,6 +15,11 @@ const TodoInfo = () => {
         currentCoin: parseInt(searchParams.get('currentCoin') ?? '0'),
         goalBox: parseInt(searchParams.get('goalBox') ?? '0'),
     }
+    
+    const tillGoalDates = new Date - new Date(todoObjext.goalDeadLine)
+    const oneDayNolma = todoObject.goalCoin - todoObject.currentCoin
+    
+    console.log('tillGoalDates', tillGoalDates)
 
     console.log('todoObject', todoObject)
 
@@ -42,6 +47,14 @@ const TodoInfo = () => {
             </div>
             <div>
                 <div>目標期日</div>
+                <div>{todoObject.goalDeadline}枚</div>
+            </div>
+                        <div>
+                <div>残日数</div>
+                <div>{tillGoalDates}枚</div>
+            </div>
+                        <div>
+                <div>1日のノルマコイン数</div>
                 <div>{todoObject.goalDeadline}枚</div>
             </div>
         </>
