@@ -21,6 +21,12 @@ function HeaderComponent({ title, redirectDatum, className }: HeaderComponentPro
     const toggleMenuOpen = () => {
         setIsOpen(!isOpen);
     };
+
+    // Linkを押した際にメニューを閉じる
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
     return (
         <div className={cn("fixed top-0 left-0 w-full z-50", className)}>
             <div className="flex justify-between bg-slate-300 text-xl p-4">
@@ -30,7 +36,9 @@ function HeaderComponent({ title, redirectDatum, className }: HeaderComponentPro
                         {redirectDatum.map((data, index) => {
                             return (
                                 <li key={index}>
-                                    <Link href={data.url}>{data.label}</Link>
+                                    <Link href={data.url} onClick={closeMenu}>
+                                        {data.label}
+                                    </Link>
                                 </li>
                             );
                         })}
@@ -45,7 +53,9 @@ function HeaderComponent({ title, redirectDatum, className }: HeaderComponentPro
                             {redirectDatum.map((data, index) => {
                                 return (
                                     <li key={index} className="my-5">
-                                        <Link href={data.url}>{data.label}</Link>
+                                        <Link href={data.url} onClick={closeMenu}>
+                                            {data.label}
+                                        </Link>
                                     </li>
                                 );
                             })}
