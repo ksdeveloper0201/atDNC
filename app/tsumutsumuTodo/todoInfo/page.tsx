@@ -49,7 +49,7 @@ const TodoInfo = () => {
                 </div>
                 <div>
                     <div>目標ボックス数</div>
-                    <div>{todoObject.goalBox ? todoObject.goalBox : todoObject.goalCoin / 30000}枚</div>
+                    <div>{todoObject.goalBox ? todoObject.goalBox : Math.floor(todoObject.goalCoin / 30000)}枚</div>
                 </div>
                 <div>
                     <div>現在のコイン枚数</div>
@@ -61,11 +61,11 @@ const TodoInfo = () => {
                 </div>
                 <div>
                     <div>残日数</div>
-                    <div>{tillGoalDates}枚</div>
+                    <div>{tillGoalDates}日</div>
                 </div>
                 <div>
                     <div>1日のノルマコイン数</div>
-                    <div>{oneDayNorma} 枚</div>
+                    <div>{Math.floor(oneDayNorma)} 枚</div>
                 </div>
             </div>
         </>
