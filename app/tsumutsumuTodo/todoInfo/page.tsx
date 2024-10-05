@@ -3,6 +3,7 @@
 import { formatDate } from '@/utils/util-function';
 import { useSearchParams } from 'next/navigation';
 import { Button } from "@/components/ui/button";
+import { Suspense } from 'react';
 
 const TodoInfo = () => {
     const searchParams = useSearchParams();
@@ -100,4 +101,12 @@ const TodoInfo = () => {
     );
 };
 
-export default TodoInfo;
+const TodoInfoPage = () => {
+    return (
+        <Suspense fallback={<div>loading...</div>}>
+            <TodoInfo />
+        </Suspense>
+    );
+}
+
+export default TodoInfoPage;
