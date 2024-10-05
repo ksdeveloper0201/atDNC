@@ -2,6 +2,8 @@ import SetTodoInfo from "@/components/tsumutsumuTodo/setTodoInfo";
 
 
 const TsumutsumuTodo = () => {
+    const todoData = localStorage.getItem('todoData')
+    if (todoData) console.log('todoData', todoData)
     return (
         <div className="container mx-auto px-6 py-8">
             <div className="text-center">
@@ -16,3 +18,5 @@ const TsumutsumuTodo = () => {
 };
 
 export default TsumutsumuTodo;
+
+
