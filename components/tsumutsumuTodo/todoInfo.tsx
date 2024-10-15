@@ -10,13 +10,12 @@ interface TodoObj {
     goalDescription: string;
     goalDeadline: string;
     goalCoin: number;
-    currentCoin: number;
     goalBox: number;
 }
 
 interface TodoInfoProps {
     todoObj?: TodoObj;
-    currentCoin: CurrentInfoType
+    currentCoin: number
 }
 
 const TodoInfo: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
@@ -27,7 +26,6 @@ const TodoInfo: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
         goalDescription: '',
         goalDeadline: new Date().toISOString(),
         goalCoin: 0,
-        currentCoin: 0,
         goalBox: 0,
     });
 
@@ -42,11 +40,11 @@ const TodoInfo: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
         const calculatedTillGoalDates = Math.max(Math.floor(tillGoalDatesTime / (1000 * 60 * 60 * 24)), 0);
 
         const goalCoin = todoObject.goalCoin ? todoObject.goalCoin : todoObject.goalBox * 30000;
-        const calculatedOneDayNorma = calculatedTillGoalDates > 0 ? Math.floor((goalCoin - todoObject.currentCoin) / calculatedTillGoalDates) : 0;
+        const calculatedOneDayNorma = calculatedTillGoalDates > 0 ? Math.floor((goalCoin - currentCoin) / calculatedTillGoalDates) : 0;
 
         setTillGoalDates(calculatedTillGoalDates);
         setOneDayNorma(calculatedOneDayNorma);
-    }, [todoObject]);
+    }, [todoObject, currentCoin]);
 
     // todoObj または searchParams のデータを使って todoObject を更新
     useEffect(() => {
@@ -58,7 +56,6 @@ const TodoInfo: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
                 goalDescription: searchParams.get('goalDescription') ?? '',
                 goalDeadline: searchParams.get('goalDeadline') ?? new Date().toISOString(),
                 goalCoin: parseInt(searchParams.get('goalCoin') ?? '0'),
-                currentCoin: parseInt(searchParams.get('currentCoin') ?? '0'),
                 goalBox: parseInt(searchParams.get('goalBox') ?? '0'),
             });
         }
@@ -77,7 +74,7 @@ const TodoInfo: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
             const everDateData = JSON.parse(localStorage.getItem('dateData') ?? '{}');
             const dateData = {
                 ...everDateData,
-                [formatDate(new Date())]: todoObject.currentCoin,
+                [formatDate(new Date())]: currentCoin,
             };
 
             const calculatedTodoData = {
@@ -114,7 +111,7 @@ const TodoInfo: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
 
                 <div className='flex flex-col items-center'>
                     <span className='text-lg text-gray-700'>現在のコイン枚数</span>
-                    <span className='text-2xl font-semibold text-indigo-600'>{todoObject.currentCoin} 枚</span>
+                    <span className='text-2xl font-semibold text-indigo-600'>{currentCoin} 枚</span>
                 </div>
 
                 <div className='flex flex-col items-center'>
