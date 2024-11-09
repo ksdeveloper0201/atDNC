@@ -3,7 +3,7 @@
 import { formatDate } from '@/utils/util-function';
 import { useSearchParams } from 'next/navigation';
 import { Button } from "@/components/ui/button";
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, Suspense } from 'react';
 
 interface TodoObj {
     goalTitle: string;
@@ -15,10 +15,10 @@ interface TodoObj {
 
 interface TodoInfoProps {
     todoObj?: TodoObj;
-    currentCoin: number
+    currentCoin: number;
 }
 
-const TodoInfo: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
+const TodoInfoPage: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
     const searchParams = useSearchParams();
 
     const [todoObject, setTodoObject] = useState<TodoObj>({
@@ -102,16 +102,16 @@ const TodoInfo: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
             <div className='grid gap-4 sm:grid-cols-2'>
                 <div className='flex flex-col items-center'>
                     <span className='text-lg text-gray-700'>目標コイン枚数</span>
-                    <span className='text-2xl font-semibold text-indigo-600'>{goalCoin} 枚</span>
+                    <span className='text-2xl font-semibold text-indigo-600'>{goalCoin.toLocaleString()} 枚</span>
                 </div>
                 <div className='flex flex-col items-center'>
                     <span className='text-lg text-gray-700'>目標ボックス数</span>
-                    <span className='text-2xl font-semibold text-indigo-600'>{goalBox} 個</span>
+                    <span className='text-2xl font-semibold text-indigo-600'>{goalBox.toLocaleString()} 個</span>
                 </div>
 
                 <div className='flex flex-col items-center'>
                     <span className='text-lg text-gray-700'>現在のコイン枚数</span>
-                    <span className='text-2xl font-semibold text-indigo-600'>{currentCoin} 枚</span>
+                    <span className='text-2xl font-semibold text-indigo-600'>{currentCoin.toLocaleString()} 枚</span>
                 </div>
 
                 <div className='flex flex-col items-center'>
@@ -126,7 +126,7 @@ const TodoInfo: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
 
                 <div className='flex flex-col items-center'>
                     <span className='text-lg text-gray-700'>1日のノルマコイン数</span>
-                    <span className='text-2xl font-semibold text-blue-500'>{oneDayNorma !== null ? oneDayNorma : '...'} 枚</span>
+                    <span className='text-2xl font-semibold text-blue-500'>{oneDayNorma !== null ? oneDayNorma.toLocaleString() : '...'} 枚</span>
                 </div>
             </div>
 
@@ -138,5 +138,13 @@ const TodoInfo: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
         </div>
     );
 };
+
+function TodoInfo({ todoObj, currentCoin }: TodoInfoProps) {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <TodoInfoPage todoObj={todoObj} currentCoin={currentCoin} />
+        </Suspense>
+    );
+}
 
 export default TodoInfo;
