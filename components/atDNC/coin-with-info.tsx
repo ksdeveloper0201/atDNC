@@ -1,6 +1,6 @@
 'use client'
 
-import TodoInfo from "@/components/tsumutsumuTodo/todoInfo";
+import TodoInfo from "@/components/atDNC/todo-info";
 import { useState } from "react";
 
 interface CoinWithInfoType {

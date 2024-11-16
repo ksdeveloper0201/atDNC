@@ -6,7 +6,6 @@ import IntroContent from "@/components/IntroContent";
 
 
 const IntroPage: React.FC = () => {
-
   return (
     <>
       <div className="p-8">
@@ -35,13 +34,6 @@ const IntroPage: React.FC = () => {
           <IntroContent name={introSkillsContent.name} body={introSkillsContent.body} className="mb-8" />
           <IntroContent name={introMyWorkContent.name} body={introMyWorkContent.body} className="mb-8" />
         </div>
-
-        {/* <div>
-          <div>
-            <GetInTouchForm />
-            <p>contact info</p>
-          </div>
-        </div> */}
 
       </div>
     </>

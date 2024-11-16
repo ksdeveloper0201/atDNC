@@ -5,6 +5,23 @@ import HamburgerMenu from "./HamburgerMenu";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
+import * as React from "react"
+import { Minus, Plus } from "lucide-react"
+// import { Bar, BarChart, ResponsiveContainer } from "recharts"
+
+import { Button } from "@/components/ui/button"
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+} from "@/components/ui/drawer"
+
+
 interface redirectDataType {
     label: string;
     url: string;
@@ -29,20 +46,22 @@ function HeaderComponent({ title, redirectDatum, className }: HeaderComponentPro
 
     return (
         <div className={cn("fixed top-0 left-0 w-full z-50", className)}>
-            <div className="flex justify-between bg-slate-300 text-xl p-4">
+            <div className="flex justify-between bg-slate-300 text-xxl p-4">
                 <Link role="logo" href='/'>{title}</Link>
-                <div role="columns">
-                    <ul className="gap-4 md:flex hidden">
-                        {redirectDatum.map((data, index) => {
-                            return (
-                                <li key={index}>
-                                    <Link href={data.url} onClick={closeMenu}>
-                                        {data.label}
-                                    </Link>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                <div role="navigation">
+                    <nav>
+                        <ul className="gap-4 md:flex hidden">
+                            {redirectDatum.map((data, index) => {
+                                return (
+                                    <li key={index}>
+                                        <Link href={data.url} onClick={closeMenu}>
+                                            {data.label}
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </nav>
                     <div
                         className={cn(
                             "fixed top-0 left-0 bg-slate-300 w-full h-full z-10 flex justify-center items-center transition-transform duration-300 ease-in-out",

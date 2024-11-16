@@ -10,10 +10,10 @@ export const metadata = {
 };
 
 // Aboutページ専用のレイアウト
-const PoliticianLayout = ({ children }: { children: ReactNode }) => {
+const AtDNCLayout = ({ children }: { children: ReactNode }) => {
     return (
         <>
-            <HeaderComponent title="ツムツムTodo" redirectDatum={tsumutsumuTodoRedirectData} />
+            <HeaderComponent title="atどのくらい" redirectDatum={tsumutsumuTodoRedirectData} />
             {/* Aboutページ専用のコンテンツを表示 */}
             <main className='pt-16 mx-8'>
                 {children}
@@ -27,4 +27,4 @@ const PoliticianLayout = ({ children }: { children: ReactNode }) => {
     );
 };
 
-export default PoliticianLayout;
+export default AtDNCLayout;

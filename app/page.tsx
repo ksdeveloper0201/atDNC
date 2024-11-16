@@ -1,4 +1,4 @@
-import IntroPage from "@/app/home/page";
+import IntroPage from "@/app/intro/page";
 
 const Home: React.FC = () => {
   return (

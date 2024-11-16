@@ -1,8 +1,8 @@
 
-import SetTodoInfo from "@/components/tsumutsumuTodo/setTodoInfo";
+import SetTodoInfo from "@/components/atDNC/set-todo-info";
 
 
-const TsumutsumuTodo = () => {
+const atDNCPage = () => {
     // const todoData = localStorage.getItem('todoData')
     // if (todoData) {
     //     JSON.parse(todoData)
@@ -21,6 +21,6 @@ const TsumutsumuTodo = () => {
     );
 };
 
-export default TsumutsumuTodo;
+export default atDNCPage;
 
 

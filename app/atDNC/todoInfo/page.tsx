@@ -1,4 +1,4 @@
-import CoinWithInfo from "@/components/tsumutsumuTodo/coinWithInfo";
+import CoinWithInfo from "@/components/atDNC/coinWithInfo";
 import { fetchGetUsers } from "@/lib/controler";
 import { getData } from "@/lib/neon-control";
 

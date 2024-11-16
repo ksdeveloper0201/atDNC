@@ -1,7 +1,6 @@
 import { Metadata as MetadataType } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ClientLayout from "@/components/ClientLayout";
 import HeaderComponent from "@/components/HeaderComponent";
 import { redirectData } from "@/data/utils-data";
 import { cn } from "@/lib/utils";
