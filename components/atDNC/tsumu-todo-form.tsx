@@ -32,9 +32,6 @@ const formSchema = z.object({
     goalTitle: z.string().min(2, {
         message: "Goal title must be at least 2 characters.",
     }),
-    goalDescription: z.string().min(2, {
-        message: "Goal description must be at least 2 characters.",
-    }),
     goalDeadline: z.date(),
     goalCoin: z.string(),
     currentCoin: z.string().min(2, {
@@ -56,7 +53,6 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
         resolver: zodResolver(formSchema),
         defaultValues: {
             goalTitle: "",
-            goalDescription: "",
             goalDeadline: new Date(),
             goalCoin: '',
             goalBox: '',
@@ -75,7 +71,7 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
         const queryString = new URLSearchParams(values as any).toString()
-        const redirectUrl = `/tsumutsumuTodo/todoInfo?${queryString}`
+        const redirectUrl = `/atDNC/todoInfo?${queryString}`
         console.log('queryString:', queryString)
         router.push(redirectUrl)
         // const nextPageUrl = 
@@ -90,8 +86,8 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
     return (
         <div className={cn(className)}>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit, onError)} className="space-y-8">
-                    <div className="md:w-3/4 w-4/5 flex flex-col mx-auto gap-4">
+                <form onSubmit={form.handleSubmit(onSubmit, onError)} className="flex flex-col space-y-8 p-6">
+                    <div className="w-full flex flex-col gap-4">
                         <div className="font-bold text-2xl">ゴール設定</div>
                         <div>下の入力欄に対して目標となる情報を入れてください。</div>
                         <FormField
@@ -102,19 +98,6 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
                                     <FormLabel>ゴールタイトル</FormLabel>
                                     <FormControl>
                                         <Input placeholder="ゴールタイトルを入力" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="goalDescription"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>ゴール詳細</FormLabel>
-                                    <FormControl>
-                                        <Textarea placeholder="ゴールの詳細" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -164,19 +147,6 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
                                 </FormItem>
                             )}
                         />
-                        {/* <FormField
-                        control={form.control}
-                        name="goalPriority"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>優先度</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="優先度を入力" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    /> */}
                         <FormField
                             control={form.control}
                             name="goalCoin"

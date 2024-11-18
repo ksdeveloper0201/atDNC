@@ -7,7 +7,6 @@ import { useEffect, useState, useMemo, Suspense } from 'react';
 
 interface TodoObj {
     goalTitle: string;
-    goalDescription: string;
     goalDeadline: string;
     goalCoin: number;
     goalBox: number;
@@ -23,7 +22,6 @@ const TodoInfoPage: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
 
     const [todoObject, setTodoObject] = useState<TodoObj>({
         goalTitle: '',
-        goalDescription: '',
         goalDeadline: new Date().toISOString(),
         goalCoin: 0,
         goalBox: 0,
@@ -53,7 +51,6 @@ const TodoInfoPage: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
         } else {
             setTodoObject({
                 goalTitle: searchParams.get('goalTitle') ?? '',
-                goalDescription: searchParams.get('goalDescription') ?? '',
                 goalDeadline: searchParams.get('goalDeadline') ?? new Date().toISOString(),
                 goalCoin: parseInt(searchParams.get('goalCoin') ?? '0'),
                 goalBox: parseInt(searchParams.get('goalBox') ?? '0'),
@@ -96,7 +93,6 @@ const TodoInfoPage: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
                 <h1 className='text-3xl font-bold text-gray-900 mb-2'>
                     {todoObject.goalTitle || "目標なし"}
                 </h1>
-                <p className='text-gray-500'>{todoObject.goalDescription}</p>
             </div>
 
             <div className='grid gap-4 sm:grid-cols-2'>

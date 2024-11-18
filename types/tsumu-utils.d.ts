@@ -1,6 +1,5 @@
 interface TodoObj {
     goalTitle: string;
-    goalDescription: string;
     goalDeadline: string;
     goalCoin: number;
     currentCoin: number;
