@@ -81,7 +81,7 @@ const CoinWithInfoBody: React.FC<CoinWithInfoType> = ({ currentInfo, dbData }) =
     );
 };
 
-export default function CoinWithInfo() {
+export default function CoinWithInfo({ currentInfo, dbData }: CoinWithInfoType) {
     return (
         <Suspense fallback="<div>loading...</div>">
             <CoinWithInfoBody />
