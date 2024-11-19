@@ -76,9 +76,9 @@ export const introMyWorkContent: IntroContentProps = {
             redirectUrl: "/politician",
         },
         {
-            title: "tsumutsumuTodo",
-            content: "ツムツムのためのスケジュール管理ツールです。",
-            redirectUrl: "/tsumutsumuTodo",
+            title: "atどのくらい",
+            content: "ゲームタスク計算ツールです",
+            redirectUrl: "/atDNC",
         },
     ],
 };
