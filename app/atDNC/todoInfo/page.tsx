@@ -1,7 +1,7 @@
 import CoinWithInfo from "@/components/atDNC/coin-with-info";
 // import { fetchGetUsers } from "@/lib/controller";
 // import { getData } from "@/lib/neon-control";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 
 
 // サーバで取得したデータのダミー

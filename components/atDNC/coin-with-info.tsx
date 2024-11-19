@@ -2,14 +2,14 @@
 
 import TodoInfo from "@/components/atDNC/todo-info";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 interface CoinWithInfoType {
     currentInfo?: CurrentInfoType;
     dbData?: TodoObj[]
 }
 
-const CoinWithInfo: React.FC<CoinWithInfoType> = ({ currentInfo, dbData }) => {
+const CoinWithInfoBody: React.FC<CoinWithInfoType> = ({ currentInfo, dbData }) => {
     const searchParams = useSearchParams();
 
     if (dbData && dbData.length === 0) {
@@ -81,4 +81,10 @@ const CoinWithInfo: React.FC<CoinWithInfoType> = ({ currentInfo, dbData }) => {
     );
 };
 
-export default CoinWithInfo;
+export default function CoinWithInfo() {
+    return (
+        <Suspense fallback="<div>loading...</div>">
+            <CoinWithInfoBody />
+        </Suspense>
+    )
+};
