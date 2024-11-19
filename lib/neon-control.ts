@@ -12,7 +12,7 @@ export async function getData() {
 
     try {
         // シンプルにクエリを実行
-        const data = await sql`SELECT * FROM goals`;
+        const data = await sql`SELECT * FROM todo`;
         return data; // データをそのまま返す
     } catch (error) {
         console.error("Error fetching data:", error);

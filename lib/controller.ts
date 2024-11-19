@@ -4,6 +4,6 @@ export const fetchGetUsers = async () => {
         console.log("users", res);
         return await res.json();
     } catch (error) {
-        console.error(error);
+        console.error("fetch occur error:", error);
     }
 };

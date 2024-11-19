@@ -1,6 +1,6 @@
 import CoinWithInfo from "@/components/atDNC/coin-with-info";
 import { fetchGetUsers } from "@/lib/controller";
-import { getData } from "@/lib/neon-control";
+// import { getData } from "@/lib/neon-control";
 import { useSearchParams } from "next/navigation";
 
 
@@ -47,8 +47,8 @@ const TodoPage = async () => {
     // const queryCurrentCoin = searchParams.get('currentCoin')
     // console.log('queryCurrentCoin', queryCurrentCoin)
 
-    const neonData = await getData()
-    console.log('neonData', neonData)
+    // const neonData = await getData()
+    // console.log('neonData', neonData)
 
     const users = await fetchGetUsers()
     console.log('todoPage users', users)
