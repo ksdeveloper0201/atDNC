@@ -11,8 +11,10 @@ interface CoinWithInfoType {
 
 const CoinWithInfoBody: React.FC<CoinWithInfoType> = ({ currentInfo, dbData }) => {
     const searchParams = useSearchParams();
+    console.log('dbData', dbData)
 
-    if (dbData && dbData.length === 0) {
+    // if (dbData && dbData.length === 0) {
+    if (!dbData) {
         dbData = [{
             goalTitle: searchParams.get('goalTitle') ?? '',
             goalDeadline: searchParams.get('goalDeadline') ?? '',
@@ -50,7 +52,7 @@ const CoinWithInfoBody: React.FC<CoinWithInfoType> = ({ currentInfo, dbData }) =
             {/* Update Coin Section */}
             <div className="w-full max-w-3xl p-3">
                 <p className="text-lg text-gray-700 mb-4">現在のコイン数を更新する</p>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                     <input
                         type="text"
                         placeholder="現在のコイン数を入力"
