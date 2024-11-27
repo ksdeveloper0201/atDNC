@@ -66,6 +66,10 @@ const TodoInfoPage: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
         return todoObject.goalBox ? todoObject.goalBox : Math.floor(todoObject.goalCoin / 30000);
     }, [todoObject.goalCoin, todoObject.goalBox]);
 
+    const editTodoData = () => {
+        console.log('editTodoData')
+    }
+
     const sendTodoData = () => {
         try {
             const everDateData = JSON.parse(localStorage.getItem('dateData') ?? '{}');
@@ -126,9 +130,12 @@ const TodoInfoPage: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
                 </div>
             </div>
 
-            <div className='flex justify-center mt-6'>
+            <div className='flex justify-center mt-6 gap-8'>
                 <Button onClick={sendTodoData} className='bg-indigo-600 text-white hover:bg-indigo-700 px-4 py-2 rounded-lg shadow'>
                     登録する
+                </Button>
+                <Button onClick={sendTodoData} className='bg-indigo-600 text-white hover:bg-indigo-700 px-4 py-2 rounded-lg shadow'>
+                    編集する
                 </Button>
             </div>
         </div>
