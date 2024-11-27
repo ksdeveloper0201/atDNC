@@ -13,7 +13,7 @@ const SetTodoInfo = () => {
         <div>
             <section className="grid gap-6">
                 <div className="p-6 bg-white shadow-md rounded-lg">
-                    <p className="text-2xl text-gray-700">
+                    <p className="text-gray-700">
                         期日までに○回引くことを目標とする場合
                     </p>
 

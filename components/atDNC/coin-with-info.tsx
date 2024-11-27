@@ -42,16 +42,16 @@ const CoinWithInfoBody: React.FC<CoinWithInfoType> = ({ currentInfo, dbData }) =
     return (
         <div className="flex flex-col items-center p-6 bg-gray-50 min-h-screen">
             {/* Current Coin Count */}
-            <div className="w-full max-w-3xl p-3">
+            <div className="text-lg w-full max-w-3xl p-3">
                 <div className="text-center">
-                    <p className="text-lg text-gray-600">現在のコイン数</p>
-                    <p className="text-4xl font-extrabold text-indigo-600 mt-2">{currentCoin.toLocaleString()} 枚</p>
+                    <p className="text-gray-600">現在のコイン数</p>
+                    <p className="font-extrabold text-indigo-600 mt-2">{currentCoin.toLocaleString()} 枚</p>
                 </div>
             </div>
 
             {/* Update Coin Section */}
-            <div className="w-full max-w-3xl p-3">
-                <p className="text-lg text-gray-700 mb-4">現在のコイン数を更新する</p>
+            <div className="text-base w-full max-w-3xl p-3">
+                <p className="text-gray-700 mb-4">現在のコイン数を更新する</p>
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                     <input
                         type="text"

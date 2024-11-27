@@ -6,34 +6,15 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 import * as React from "react"
-import { Minus, Plus } from "lucide-react"
-// import { Bar, BarChart, ResponsiveContainer } from "recharts"
+import { AtDNCConfig, IntroConfig } from "@/types";
 
-import { Button } from "@/components/ui/button"
-import {
-    Drawer,
-    DrawerClose,
-    DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger,
-} from "@/components/ui/drawer"
-
-
-interface redirectDataType {
-    label: string;
-    url: string;
-}
-
-interface HeaderComponentProps {
-    title: string;
-    redirectDatum: redirectDataType[];
+type HeaderComponentProps = {
     className?: string;
-}
+} & (IntroConfig | AtDNCConfig)
 
-function HeaderComponent({ title, redirectDatum, className }: HeaderComponentProps) {
+const HeaderComponent: React.FC<HeaderComponentProps> = ({ title, mainNav, sidebarNav, className }) => {
+    console.log('mainNav', mainNav)
+
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const toggleMenuOpen = () => {
         setIsOpen(!isOpen);
@@ -45,17 +26,17 @@ function HeaderComponent({ title, redirectDatum, className }: HeaderComponentPro
     };
 
     return (
-        <div className={cn("fixed top-0 left-0 w-full z-50", className)}>
+        <header className={cn("fixed top-0 left-0 w-full z-50", className)}>
             <div className="flex justify-between bg-slate-300 text-xxl p-4">
                 <Link role="logo" href='/'>{title}</Link>
                 <div role="navigation">
                     <nav>
                         <ul className="gap-4 md:flex hidden">
-                            {redirectDatum.map((data, index) => {
+                            {mainNav.map((data, index) => {
                                 return (
                                     <li key={index}>
-                                        <Link href={data.url} onClick={closeMenu}>
-                                            {data.label}
+                                        <Link href={data.href} onClick={closeMenu}>
+                                            {data.title}
                                         </Link>
                                     </li>
                                 );
@@ -69,11 +50,11 @@ function HeaderComponent({ title, redirectDatum, className }: HeaderComponentPro
                         )}
                     >
                         <ul>
-                            {redirectDatum.map((data, index) => {
+                            {mainNav.map((data, index) => {
                                 return (
                                     <li key={index} className="my-5">
-                                        <Link href={data.url} onClick={closeMenu}>
-                                            {data.label}
+                                        <Link href={data.href!} onClick={closeMenu}>
+                                            {data.title}
                                         </Link>
                                     </li>
                                 );
@@ -90,7 +71,7 @@ function HeaderComponent({ title, redirectDatum, className }: HeaderComponentPro
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
     );
 }
 

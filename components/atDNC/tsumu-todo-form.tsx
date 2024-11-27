@@ -88,7 +88,7 @@ const TsumuTodoForm: React.FC<TsumuTodoFormProps> = ({ className }) => {
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit, onError)} className="flex flex-col space-y-8 p-6">
                     <div className="w-full flex flex-col gap-4">
-                        <div className="font-bold text-2xl">ゴール設定</div>
+                        <div className="font-bold">ゴール設定</div>
                         <div>下の入力欄に対して目標となる情報を入れてください。</div>
                         <FormField
                             control={form.control}

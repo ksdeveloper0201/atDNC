@@ -1,7 +1,7 @@
 // app/about/layout.tsx
 import { ReactNode } from 'react';
 import HeaderComponent from '@/components/HeaderComponent';
-import { politicianRedirectData, tsumutsumuTodoRedirectData } from '@/data/utils-data';
+import { atDNCConfig } from '@/config/atDNC'
 
 // Metadataの設定（オプション）
 export const metadata = {
@@ -9,13 +9,16 @@ export const metadata = {
     description: 'Learn more about our team and mission.',
 };
 
+console.log('atDNCConfig', atDNCConfig)
+
 // Aboutページ専用のレイアウト
 const AtDNCLayout = ({ children }: { children: ReactNode }) => {
+
     return (
         <>
-            <HeaderComponent title="atどのくらい" redirectDatum={tsumutsumuTodoRedirectData} />
+            <HeaderComponent title={atDNCConfig.title} mainNav={atDNCConfig.mainNav} sidebarNav={atDNCConfig.sidebarNav} />
             {/* Aboutページ専用のコンテンツを表示 */}
-            <main className='pt-16 mx-8'>
+            <main className='text-base'>
                 {children}
             </main>
 

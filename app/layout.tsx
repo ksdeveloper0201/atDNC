@@ -4,6 +4,7 @@ import "./globals.css";
 import HeaderComponent from "@/components/HeaderComponent";
 import { redirectData } from "@/data/utils-data";
 import { cn } from "@/lib/utils";
+import { introConfig } from "@/config/intro";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, "pt-16")}>
-        <HeaderComponent title="KSDeve" redirectDatum={redirectData} />
+        <HeaderComponent title={introConfig.title} mainNav={introConfig.mainNav} sidebarNav={introConfig.sidebarNav} />
         {children}
       </body>
     </html>

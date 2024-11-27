@@ -88,41 +88,41 @@ const TodoInfoPage: React.FC<TodoInfoProps> = ({ todoObj, currentCoin }) => {
     };
 
     return (
-        <div className='grid gap-6 p-6 bg-white shadow-md rounded-lg'>
+        <div className='text-lg grid gap-6 p-6 bg-white shadow-md rounded-lg'>
             <div className='text-center'>
-                <h1 className='text-3xl font-bold text-gray-900 mb-2'>
+                <h1 className='font-bold text-gray-900 mb-2'>
                     {todoObject.goalTitle || "目標なし"}
                 </h1>
             </div>
 
             <div className='grid gap-4 sm:grid-cols-2'>
                 <div className='flex flex-col items-center'>
-                    <span className='text-lg text-gray-700'>目標コイン枚数</span>
-                    <span className='text-2xl font-semibold text-indigo-600'>{goalCoin.toLocaleString()} 枚</span>
+                    <span className='text-gray-700'>目標コイン枚数</span>
+                    <span className='font-semibold text-indigo-600'>{goalCoin.toLocaleString()} 枚</span>
                 </div>
                 <div className='flex flex-col items-center'>
-                    <span className='text-lg text-gray-700'>目標ボックス数</span>
-                    <span className='text-2xl font-semibold text-indigo-600'>{goalBox.toLocaleString()} 個</span>
-                </div>
-
-                <div className='flex flex-col items-center'>
-                    <span className='text-lg text-gray-700'>現在のコイン枚数</span>
-                    <span className='text-2xl font-semibold text-indigo-600'>{currentCoin.toLocaleString()} 枚</span>
+                    <span className='text-gray-700'>目標ボックス数</span>
+                    <span className='font-semibold text-indigo-600'>{goalBox.toLocaleString()} 個</span>
                 </div>
 
                 <div className='flex flex-col items-center'>
-                    <span className='text-lg text-gray-700'>目標期日</span>
+                    <span className='text-gray-700'>現在のコイン枚数</span>
+                    <span className='font-semibold text-indigo-600'>{currentCoin.toLocaleString()} 枚</span>
+                </div>
+
+                <div className='flex flex-col items-center'>
+                    <span className='text-gray-700'>目標期日</span>
                     <span className='text-xl font-semibold text-red-500'>{formatDate(todoObject.goalDeadline)}</span>
                 </div>
 
                 <div className='flex flex-col items-center'>
-                    <span className='text-lg text-gray-700'>残日数</span>
-                    <span className='text-2xl font-semibold text-green-500'>{tillGoalDates !== null ? tillGoalDates : '...'} 日</span>
+                    <span className='text-gray-700'>残日数</span>
+                    <span className='font-semibold text-green-500'>{tillGoalDates !== null ? tillGoalDates : '...'} 日</span>
                 </div>
 
                 <div className='flex flex-col items-center'>
-                    <span className='text-lg text-gray-700'>1日のノルマコイン数</span>
-                    <span className='text-2xl font-semibold text-blue-500'>{oneDayNorma !== null ? oneDayNorma.toLocaleString() : '...'} 枚</span>
+                    <span className='text-gray-700'>1日のノルマコイン数</span>
+                    <span className='font-semibold text-blue-500'>{oneDayNorma !== null ? oneDayNorma.toLocaleString() : '...'} 枚</span>
                 </div>
             </div>
 

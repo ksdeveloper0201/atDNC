@@ -2,46 +2,46 @@ import { IntroContentItemProps, IntroContentProps } from "@/types/intro";
 
 export const redirectData = [
     {
-        url: "/home",
-        label: "Home",
+        href: "/home",
+        title: "Home",
     },
     {
-        url: "/skills",
-        label: "about",
+        href: "/skills",
+        title: "about",
     },
     {
-        url: "/products",
-        label: "work",
+        href: "/products",
+        title: "work",
     },
 ];
 
 export const politicianRedirectData = [
     {
-        url: "/politician",
-        label: "ホーム",
+        href: "/politician",
+        title: "ホーム",
     },
     {
-        url: "/politician/about",
-        label: "このサイトについて",
+        href: "/politician/about",
+        title: "このサイトについて",
     },
     {
-        url: "/politician/connect",
-        label: "お問い合わせ",
+        href: "/politician/connect",
+        title: "お問い合わせ",
     },
 ];
 
 export const tsumutsumuTodoRedirectData = [
     {
-        url: "/tsumutsumuTodo",
-        label: "ホーム",
+        href: "/atDNC",
+        title: "ホーム",
     },
     {
-        url: "/tsumutsumuTodo/about",
-        label: "このサイトについて",
+        href: "/atDNC/about",
+        title: "このサイトについて",
     },
     {
-        url: "/tsumutsumuTodo/connect",
-        label: "お問い合わせ",
+        href: "/atDNC/connect",
+        title: "お問い合わせ",
     },
 ];
 
