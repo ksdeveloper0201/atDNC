@@ -19,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="Ja">
       <body className={cn(inter.className, "pt-16")}>
-        <HeaderComponent title={introConfig.title} mainNav={introConfig.mainNav} sidebarNav={introConfig.sidebarNav} />
+        {/* <HeaderComponent title={introConfig.title} mainNav={introConfig.mainNav} sidebarNav={introConfig.sidebarNav} /> */}
         {children}
       </body>
     </html>

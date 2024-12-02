@@ -3,11 +3,6 @@ import SetTodoInfo from "@/components/atDNC/set-todo-info";
 
 
 const atDNCPage = () => {
-    // const todoData = localStorage.getItem('todoData')
-    // if (todoData) {
-    //     JSON.parse(todoData)
-    // }
-
     return (
         <div className="container mx-auto px-6 py-8">
             <div className="text-center">

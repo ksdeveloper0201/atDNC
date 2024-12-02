@@ -10,6 +10,7 @@ export const atDNCConfig: AtDNCConfig = {
         {
             title: "このサイトについて",
             href: "/atDNC/about",
+            disabled: true,
         },
         {
             title: "お問い合わせ",

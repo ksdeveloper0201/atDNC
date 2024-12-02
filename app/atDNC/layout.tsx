@@ -18,7 +18,7 @@ const AtDNCLayout = ({ children }: { children: ReactNode }) => {
         <>
             <HeaderComponent title={atDNCConfig.title} mainNav={atDNCConfig.mainNav} sidebarNav={atDNCConfig.sidebarNav} />
             {/* Aboutページ専用のコンテンツを表示 */}
-            <main className='text-base'>
+            <main className='text-base mt-8'>
                 {children}
             </main>
 
