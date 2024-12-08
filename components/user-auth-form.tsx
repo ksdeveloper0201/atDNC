@@ -31,7 +31,7 @@ export default function UserAuthForm({
             >
                 {" "}
                 {isLoading ? (
-                    <Icons.spinner className="mr-2 h-4 w-4" />
+                    <Icons.spin className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
                     <Icons.google className="mr-2 h-4 w-4" />
                 )}
@@ -45,8 +45,8 @@ export default function UserAuthForm({
                     signIn("github");
                 }}
             >
-                {isLoading ? (
-                    <Icons.spinner className="mr-2 h-4 w-4" />
+                {isGithubLoading ? (
+                    <Icons.spin className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
                     <Icons.github className="mr-2 h-4 w-4" />
                 )}
